@@ -9,7 +9,12 @@ const formData = ref({
 async function handleSubmit(data) {
   await wait(3000);
   console.log(data)
+}
 
+async function username_is_unique(node) {
+  const usernames = ['foo', 'bar'];
+
+  return !usernames.includes(node.value);
 }
 </script>
 <template>
@@ -17,7 +22,7 @@ async function handleSubmit(data) {
     <FormKit type="form" :value="formData" @submit="handleSubmit" submit-label="Login">
       <template #default="{ state }">
         <h1>Login</h1>
-        <FormKit type="text" label="Username" name="username" :validation="[['required'], ['url'], ['length', 16, 20]]"/>
+        <FormKit type="text" label="Username" name="username" validation="(500)username_is_unique" />
         <FormKit type="password" label="Password" name="password" />
       </template>
     </FormKit>
