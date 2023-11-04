@@ -1,7 +1,7 @@
 import { DefaultConfigOptions } from "@formkit/vue";
 
 const config: DefaultConfigOptions = {
-    theme: "genesis"
+    theme: "genesis",
 }
 
 export default config;
