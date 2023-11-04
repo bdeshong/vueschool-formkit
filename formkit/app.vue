@@ -14,13 +14,11 @@ async function handleSubmit(data) {
 </script>
 <template>
   <div>
-    <FormKit type="form" :value="formData" @submit="handleSubmit" submit-behavior="live" submit-label="Login" :actions="false">
+    <FormKit type="form" :value="formData" @submit="handleSubmit" submit-label="Login">
       <template #default="{ state }">
         <h1>Login</h1>
-        <FormKit type="text" label="Username" name="username" />
+        <FormKit type="text" label="Username" name="username" :validation="[['required'], ['url'], ['length', 16, 20]]"/>
         <FormKit type="password" label="Password" name="password" />
-        <button :disabled="state.loading">
-        {{ state.loading ? 'Loading...' : 'Login' }}</button>
       </template>
     </FormKit>
   </div>
