@@ -1,6 +1,9 @@
 <script setup>
 import { wait } from './utils';
-import { FormKitSchema } from '@formkit/vue';
+import { FormKitSchema, createInput } from '@formkit/vue';
+import VueMultiSelectFormKit from './formkit-components/VueMultiSelectFormKit.vue';
+
+const ms = createInput(VueMultiSelectFormKit);
 
 const formData = ref({
   username: 'bdeshong',
@@ -41,6 +44,12 @@ async function username_is_unique(node) {
             },
             {
               $formkit: 'password', label: 'Password', name: 'password', if: '$value.username'
+            },
+            {
+              $formkit: ms,
+              label: 'Framework',
+              value: 'Vue',
+              options: ['Vue', 'React', 'Svelte']
             }
           ]
         },
