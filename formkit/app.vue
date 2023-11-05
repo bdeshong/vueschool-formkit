@@ -1,7 +1,6 @@
 <script setup>
 import { wait } from './utils';
 import { FormKitSchema } from '@formkit/vue';
-import { createAutoAnimatePlugin} from '@formkit/addons';
 
 const formData = ref({
   username: 'bdeshong',
@@ -38,7 +37,7 @@ async function username_is_unique(node) {
               children: 'Login',
             },
             {
-              $formkit: 'text', label: 'Username', name: 'username', validation: '(500)username_is_unique' 
+              $formkit: 'text', label: 'Username', name: 'username', validation: '(500)username_is_unique', help: 'Please fill out your username'
             },
             {
               $formkit: 'password', label: 'Password', name: 'password', if: '$value.username'
