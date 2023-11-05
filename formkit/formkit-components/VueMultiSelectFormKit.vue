@@ -12,6 +12,12 @@ const props = defineProps({
         :id="context.id" :name="context.node.name"
         @blur="context.handlers.blur"
         :disabled="context.disabled"
+        :class="context.classes.input"
     ></MultiSelect>
 </template>
 <style src="vue-multiselect/dist/vue-multiselect.css"></style>
+<style>
+    .formkit-input.multiselect {
+        padding: 0;
+    }
+</style>
