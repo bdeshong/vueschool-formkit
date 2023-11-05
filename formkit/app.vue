@@ -1,6 +1,7 @@
 <script setup>
 import { wait } from './utils';
 import { FormKitSchema } from '@formkit/vue';
+import { createAutoAnimatePlugin} from '@formkit/addons';
 
 const formData = ref({
   username: 'bdeshong',
