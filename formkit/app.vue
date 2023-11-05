@@ -5,10 +5,7 @@ import VueMultiSelectFormKit from './formkit-components/VueMultiSelectFormKit.vu
 
 const ms = createInput(VueMultiSelectFormKit);
 
-const formData = ref({
-  username: 'bdeshong',
-  password: '',
-})
+const formData = ref([])
 
 async function handleSubmit(data) {
   await wait(3000);
@@ -23,7 +20,8 @@ async function username_is_unique(node) {
 </script>
 <template>
   <div>
-  <FormKit id="repeater" name="users" type="repeater" label="Users">
+    <pre>{{ formData }}</pre>
+  <FormKit v-model="formData" id="repeater" name="users" type="repeater" label="Users">
     <FormKit type="email" label="Email" name="email" validation="required|email" placeholder="Add email address..." />
     <FormKit type="text" label="Name" name="name" validation="required" />
     <FormKit type="toggle" name="toggle" label="Is Admin" />
