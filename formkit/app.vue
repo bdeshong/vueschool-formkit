@@ -23,38 +23,10 @@ async function username_is_unique(node) {
 </script>
 <template>
   <div>
-    <FormKitSchema :data="{
-      formData,
-      attrs: {
-        onSubmit: handleSubmit,
-      }
-    }" :schema="[
-        {
-          $formkit: 'form',
-          submitLabel: 'Login',
-          value: '$formData',
-          bind: '$attrs',
-          children: [
-            {
-              $el: 'h1',
-              children: 'Login',
-            },
-            {
-              $formkit: 'text', label: 'Username', name: 'username', validation: '(500)username_is_unique', help: 'Please fill out your username'
-            },
-            {
-              $formkit: 'password', label: 'Password', name: 'password', if: '$value.username'
-            },
-            {
-              $formkit: ms,
-              label: 'Framework',
-              value: 'Vue',
-              options: ['Vue', 'React', 'Svelte'],
-              multiple: true
-            }
-          ]
-        },
-      ]" />
-
+  <FormKit id="repeater" name="users" type="repeater" label="Users">
+    <FormKit type="email" label="Email" name="email" validation="required|email" placeholder="Add email address..." />
+    <FormKit type="text" label="Name" name="name" validation="required" />
+    <FormKit type="toggle" name="toggle" label="Is Admin" />
+  </FormKit>
   </div>
 </template>

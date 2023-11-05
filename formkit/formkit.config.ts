@@ -2,11 +2,12 @@ import { DefaultConfigOptions } from "@formkit/vue";
 import { createAutoAnimatePlugin } from '@formkit/addons';
 import createToolTipPlugin from "./formkit-plugins/tooltip-plugin";
 import "./formkit-plugins/tooltip-plugin/styles.css";
-
+import { createProPlugin, inputs } from '@formkit/pro'
+import '@formkit/pro/genesis';
 
 const config: DefaultConfigOptions = {
     theme: "genesis",
-    plugins: [createAutoAnimatePlugin(), createToolTipPlugin()],
+    plugins: [createAutoAnimatePlugin(), createToolTipPlugin(), createProPlugin('fk-43879f224', inputs)],
     messages: {
         en: {
             validation: {
