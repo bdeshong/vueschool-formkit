@@ -49,7 +49,8 @@ async function username_is_unique(node) {
               $formkit: ms,
               label: 'Framework',
               value: 'Vue',
-              options: ['Vue', 'React', 'Svelte']
+              options: ['Vue', 'React', 'Svelte'],
+              multiple: true
             }
           ]
         },
